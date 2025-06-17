@@ -148,7 +148,7 @@ const Resume = () => {
             <p style={paragraphStyle}>
               {isEn
                 ? "I am 22 years old and a graduate of the School of Information and Communication Technology at the Mongolian University of Science and Technology. I completed my bachelor's degree in Software Engineering over a four-year program. For my graduation project, I developed a full-stack web application focused on real estate management, which I successfully defended with a score of 97%. I am passionate about building practical software solutions, and I am particularly interested in full-stack development, system design, and user experience. I am a highly motivated, detail-oriented individual with strong analytical thinking, good communication skills, and a deep desire to continuously learn and grow as a developer."
-                : "Би 22 настай, Шинжлэх Ухаан Технологийн Их Сургуулийн Мэдээлэл, Холбооны Технологийн Сургуулийн Програм хангамжийн бакалаврын хөтөлбөрийг дөрвөн жилийн хугацаанд амжилттай дүүргэсэн. Дипломын ажлаараа үл хөдлөх хөрөнгө менежментийн вэб систем бүтээж, 97 хувийн үнэлгээтэй хамгаалсан. Би практик програм хангамжийн шийдэл бүтээх асуудал илрүүлэн засахад ихээхэн сонирхолтой бөгөөд бүрэн стек хөгжүүлэлт, системийн архитектур, хэрэглэгчийн туршлагын чиглэлд сонирхолтой. Нарийн детальд анхаардаг, шинийг сурах эрмэлзэлтэй, асуудал шийдвэрлэх чадвартай, идэвх санаачлагатай, бусадтай сайн харилцдаг, хувийн зохион байгуулалт сайн."
+                : "Би 22 настай, Шинжлэх Ухаан Технологийн Их Сургуулийн Мэдээлэл, Холбооны Технологийн Сургуулийн Програм хангамжийн бакалаврын хөтөлбөрийг дөрвөн жилийн хугацаанд амжилттай дүүргэсэн. Дипломын ажлаараа үл хөдлөх хөрөнгө менежментийн вэб систем бүтээж, 97 хувийн үнэлгээтэй хамгаалсан. Би практик програм хангамжийн шийдэл бүтээх асуудал илрүүлэн засахад ихээхэн сонирхолтой бөгөөд бүрэн стек хөгжүүлэлт, системийн архитектур, хэрэглэгчийн туршлагыг өндөр байлгах дуртай. Нарийн детальд анхаардаг, шинийг сурах эрмэлзэлтэй, асуудал шийдвэрлэх чадвартай, идэвх санаачлагатай, бусадтай сайн харилцдаг, хувийн зохион байгуулалт сайн."
               }
             </p>
           </section>
@@ -257,6 +257,13 @@ const Resume = () => {
               <li style={liStyle}>
                 {isEn ? 'Debugging & Problem-solving' : 'Алдааг олох ба асуудал шийдвэрлэх'}
               </li>
+            </ul>
+          </section>
+          <section style={sectionStyle}>
+            <h2 style={sectionTitleStyle}>{isEn ? 'Skills' : 'Хэлний чадвар'}</h2>
+            <ul style={ulStyle}>
+              <li style={liStyle}>Англи хэл ахисан түвшний </li>
+
             </ul>
           </section>
         </main>
