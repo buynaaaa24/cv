@@ -1,15 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Resume = () => {
   const [lang, setLang] = useState('en');
+  const [isMobile, setIsMobile] = useState(false);
+
   const isEn = lang === 'en';
 
   const toggleLang = () => setLang(isEn ? 'mn' : 'en');
 
+  // Detect mobile screen width
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize(); // initial check
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const sectionStyle = { marginBottom: '2rem' };
   const containerStyle = {
     display: 'flex',
-    height: '100vh',
+    flexDirection: isMobile ? 'column' : 'row',
+    height: isMobile ? 'auto' : '100vh',
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     color: '#324B48',
     position: 'relative',
@@ -28,14 +41,17 @@ const Resume = () => {
     cursor: 'pointer',
   };
   const leftPanelStyle = {
-    flex: '0 0 320px',
+    flex: isMobile ? 'none' : '0 0 320px',
+    width: isMobile ? '100%' : undefined,
     backgroundColor: '#3d5752',
     color: '#fff',
-    padding: '2rem 2rem 4rem',
+    padding: isMobile ? '1.5rem 1rem 2rem' : '2rem 2rem 4rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0% 100%)',
+    clipPath: isMobile
+      ? 'none'
+      : 'polygon(0 0, 100% 0, 85% 100%, 0% 100%)',
   };
   const profileImageStyle = {
     width: '140px',
@@ -75,7 +91,7 @@ const Resume = () => {
   const rightPanelStyle = {
     flex: 1,
     backgroundColor: '#e6efef',
-    padding: '3rem 4rem',
+    padding: isMobile ? '2rem 1.5rem' : '3rem 4rem',
     overflowY: 'auto',
   };
   const sectionTitleStyle = {
@@ -158,50 +174,49 @@ const Resume = () => {
                 <li style={liStyle}>{isEn ? 'Responsive UI design' : 'Дасан зохицох интерфэйс дизайн'}</li>
               </ul>
             </div>
-           
+
             <div style={{ marginBottom: '1.5rem' }}>
-  <h3 style={subheadingStyle}>
-    {isEn ? 'Freelance Web Developer' : 'Фриланс Вэб Хөгжүүлэгч'}
-  </h3>
+              <h3 style={subheadingStyle}>
+                {isEn ? 'Freelance Web Developer' : 'Фриланс Вэб Хөгжүүлэгч'}
+              </h3>
 
-  <p style={paragraphStyle}>
-    <strong>
-      <a
-        href="https://www.miftaah.ae/"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ color: '#1a0dab', textDecoration: 'underline' }}
-      >
-        Miftaah.ae
-      </a>
-    </strong>
-  </p>
+              <p style={paragraphStyle}>
+                <strong>
+                  <a
+                    href="https://www.miftaah.ae/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: '#1a0dab', textDecoration: 'underline' }}
+                  >
+                    Miftaah.ae
+                  </a>
+                </strong>
+              </p>
 
-  <p style={paragraphStyle}>
-    {isEn
-      ? 'Worked as a freelance web developer building and maintaining websites for clients.'
-      : 'Үйлчлүүлэгчдэд зориулан вэб сайт бүтээж,  вэб хөгжүүлэгчээр ажилласан.'}
-  </p>
+              <p style={paragraphStyle}>
+                {isEn
+                  ? 'Worked as a freelance web developer building and maintaining websites for clients.'
+                  : 'Үйлчлүүлэгчдэд зориулан вэб сайт бүтээж,  вэб хөгжүүлэгчээр ажилласан.'}
+              </p>
 
-  <ul style={ulStyle}>
-    <li style={liStyle}>
-      {isEn
-        ? 'Designed and implemented responsive websites tailored to client needs'
-        : 'Үйлчлүүлэгчийн хэрэгцээнд нийцсэн вебсайт бүтээсэн'}
-    </li>
-    <li style={liStyle}>
-      {isEn
-        ? 'Handled full project lifecycle from requirements to deployment'
-        : 'Шаардлага тодорхойлохоос эхлэн байршуулалт хүртэлх бүтэн хөгжүүлэлтийн циклийг хийсэн'}
-    </li>
-    <li style={liStyle}>
-      {isEn
-        ? 'Communicated directly with clients to ensure satisfaction'
-        : 'Үйлчлүүлэгчидтэй шууд харилцаж, сэтгэл ханамжийг хангаж ажилласан'}
-    </li>
-  </ul>
-</div>
-
+              <ul style={ulStyle}>
+                <li style={liStyle}>
+                  {isEn
+                    ? 'Designed and implemented responsive websites tailored to client needs'
+                    : 'Үйлчлүүлэгчийн хэрэгцээнд нийцсэн вебсайт бүтээсэн'}
+                </li>
+                <li style={liStyle}>
+                  {isEn
+                    ? 'Handled full project lifecycle from requirements to deployment'
+                    : 'Шаардлага тодорхойлохоос эхлэн байршуулалт хүртэлх бүтэн хөгжүүлэлтийн циклийг хийсэн'}
+                </li>
+                <li style={liStyle}>
+                  {isEn
+                    ? 'Communicated directly with clients to ensure satisfaction'
+                    : 'Үйлчлүүлэгчидтэй шууд харилцаж, сэтгэл ханамжийг хангаж ажилласан'}
+                </li>
+              </ul>
+            </div>
 
             <div style={{ marginBottom: '1.5rem' }}>
               <h3 style={subheadingStyle}>{isEn ? 'Backend Developer Intern' : 'Мэргэжлийн дадлага'}</h3>
